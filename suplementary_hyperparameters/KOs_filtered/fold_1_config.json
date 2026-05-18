@@ -1,0 +1,32 @@
+{
+    "fold": 1,
+    "optuna_best_params": {
+        "dropout_rate": 0.10937935184738867,
+        "weight_decay": 1.7822768306481497e-06,
+        "l1_lambda": 1.2893557518076334e-06,
+        "batch_norm": false
+    },
+    "fixed_params": {
+        "input_size": 4415,
+        "hidden_size": [
+            256,
+            128,
+            32
+        ],
+        "output_size": 1,
+        "batch_size": 6,
+        "epochs": 100,
+        "learning_rate": 0.0001,
+        "loss_type": "classic_binary",
+        "use_attention": false,
+        "optimizer_class": "SGD",
+        "warm_up": 5,
+        "early_stopping_patience": 10,
+        "early_stopping_delta": 0.005,
+        "cv_outer_folds": 3,
+        "cv_inner_folds": 3,
+        "device": "cuda",
+        "use_mixup": false,
+        "class_weights": null
+    }
+}
