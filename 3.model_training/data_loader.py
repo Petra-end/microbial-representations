@@ -1,7 +1,14 @@
 ### ---------- !!! CATION PRE RUNNING !!! ----------
-# Whe using the data_loader in the feature analysis,
+# When using the data_loader in the feature analysis,
 # some lines in the load_data_and_targets function
 # need to be adjusted.
+#
+# Additionally, we have experimented a lot with the
+# best format of saving the FM embeddings.
+# An unfortunate consequence of this is that each
+# FM model has slightly different file structure.
+# An adjustment needs to be made to the code in
+# load_data_and_targets when using ESM or Bacformer.
 #
 # Further instructions bellow.
 ### ------------------------------------------------
@@ -73,7 +80,7 @@ def load_data_and_targets(folder_path, targets_file, meta_split_file=None,
             if protein:
                 for protein_id in h5f.keys():
                     try:
-                        mean_emb = h5f[protein_id]['embedding'][:]
+                        mean_emb = h5f[protein_id]['embedding'][:] # !!! embedding is compatible with the bacformer embedding generations script. Change here to mean_embedding to be compatible with the currect esm2 embedding generation script.
                         embeddings.append(mean_emb)
                         protein_ids.append(protein_id)
                     except KeyError:
