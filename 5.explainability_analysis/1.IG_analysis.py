@@ -23,7 +23,7 @@ from captum.attr import IntegratedGradients
 # add parent directory (attention_version/) to the Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from MLP_classif import MLPClassifier
+from MLP_classif_keggog import MLPClassifier
 from data_loader import load_data_and_targets
 
 # -------------------- CONFIG --------------------
@@ -62,8 +62,7 @@ model = MLPClassifier(
     hidden_sizes=params["hidden_size"],
     output_size=params["output_size"],
     dropout_rate=best_params["dropout_rate"],
-    loss_type=params["loss_type"],
-    use_attention=False,
+    loss_type=params["loss_type"]
 ).to(device)
 
 state = torch.load(checkpoint, map_location=device)
